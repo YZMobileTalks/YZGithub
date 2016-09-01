@@ -8,6 +8,7 @@
 
 import UIKit
 import Moya
+import MBProgressHUD
 
 class RepoInfoViewController: UIViewController {
     
@@ -55,12 +56,15 @@ class RepoInfoViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     func fetchRepoInfo() {
+        let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
+        hud.labelText = "加载仓库信息中"
          let nb = Provider.sharedProvider.request(GitHubAPI.UserSomeRepo(owner: repoOwner!, repo: repoName!)) { [weak self](result) in
             switch result {
             case .Success(let response):
                 do {
                     if let repo:Repository? = try response.mapObject(Repository) {
                         self!.repoInfo = repo
+                        print(self?.classForCoder)
                         if self?.tableView != nil {
                             self!.tableView.reloadData()
                         }
@@ -71,6 +75,7 @@ class RepoInfoViewController: UIViewController {
             case .Failure(let error):
                 GlobalHubHelper.showError("网络请求失败:\(error)", view: self!.view)
             }
+            MBProgressHUD.hideAllHUDsForView(self!.view, animated: true)
         }
         netTask.append(nb)
     }

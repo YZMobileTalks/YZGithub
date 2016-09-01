@@ -32,3 +32,18 @@
 * [ ] 分支详情
 
 
+
+# 联系我们
+![](images/logo.png)
+
+> 1. Github地址 [链接](https://github.com/YZMobileTalks)
+> 2. Blog 地址 [链接](http://www.52learn.wang/)
+> 3. 微信公众号 : YZMobileTalks
+
+<div style="text-align:center">
+<h4>扫描下面二维码获取最新文章</h4>
+<img src="http://oc3i2c6rt.bkt.clouddn.com/qrcode_for_gh_4e6ee1951601_258.jpg"/>
+</div>
+
+
+
