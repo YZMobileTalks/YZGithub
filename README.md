@@ -9,6 +9,17 @@
 * MOYA
 * GITHUB
 * NETWORK
+* URLRouter
+
+#### 使用说明
+1. Download
+2. pod install
+3. open xcworkspace
+
+#### BUG (欢迎大家提PR)
+1. 前期强制解包的一系列问题
+2. 前期代码逻辑的系列问题
+
 
 #### 效果图
 ![](images/index.png) -  - ![](images/repoinfo.png)
@@ -30,6 +41,10 @@
 * [x] 消息界面
 * [x] 动态界面
 * [ ] 分支详情
+* [ ] 各个cell优化
+* [ ] 趋势页面(区分日,周,月)
+* [ ] 个人页面效果优化
+* [ ] 仓库动态页面
 
 
 
