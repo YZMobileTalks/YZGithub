@@ -30,12 +30,10 @@ class LoginViewController: YZWebViewController {
     override func webViewDidStartLoad(webView: UIWebView) {
         super.webViewDidStartLoad(webView)
     }
-    
     override func webViewDidFinishLoad(webView: UIWebView) {
         super.webViewDidFinishLoad(webView)
         let  url:String =  (webView.request?.URL?.absoluteString)!
         let codePrefix:String = "code="
-        
         if url.containsString(codePrefix) {
             let range = url.rangeOfString(codePrefix)!
             let index = url.startIndex.distanceTo(range.startIndex) + 5
@@ -83,7 +81,6 @@ class LoginViewController: YZWebViewController {
     }
     
     func getUserInfo(token:String) {
-        
         let provider = Provider.sharedProvider
         provider.request(GitHubAPI.MyInfo, completion:{
             (result) -> () in

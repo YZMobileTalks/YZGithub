@@ -18,7 +18,9 @@ class MessagesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         customUI()
-        fetchData()
+        isLogin()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(fetchData), name: NotificationGitLoginSuccessful, object: nil)
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(fetchData), name: NotificationGitLogOutSuccessful, object: nil)
     }
     func customUI() {
         view.addSubview(tableView)
@@ -49,6 +51,13 @@ class MessagesViewController: UIViewController {
             case .Failure(let error):
                 GlobalHubHelper.showError("error:\(error.response)", view: self.view)
             }
+        }
+    }
+    func isLogin() {
+        if UserInfoHelper.sharedInstance.isLogin {
+            fetchData()
+        }else {
+            GlobalHubHelper.showError("请先登录...", view: self.view)
         }
     }
 }
